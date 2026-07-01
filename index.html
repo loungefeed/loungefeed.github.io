@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoungeFeed - Watch your feeds on Apple TV</title>
+  <meta name="description" content="LoungeFeed lets people watch their own authorized social and content feeds on Apple TV through a local Mac or iPhone Host.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071018;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text: #f7fbff;
+      --muted: rgba(247, 251, 255, 0.72);
+      --soft: rgba(247, 251, 255, 0.52);
+      --line: rgba(247, 251, 255, 0.16);
+      --accent: #4bd0ff;
+      --accent-2: #9cffb2;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(75, 208, 255, 0.24), transparent 34rem),
+        radial-gradient(circle at 80% 18%, rgba(156, 255, 178, 0.16), transparent 28rem),
+        linear-gradient(160deg, #071018 0%, #0b1621 52%, #05090f 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    .page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0 64px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      font-size: 22px;
+    }
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061018;
+      font-weight: 850;
+      box-shadow: 0 16px 40px rgba(75, 208, 255, 0.2);
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    nav a {
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: var(--text);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.055);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.94;
+      letter-spacing: -0.065em;
+    }
+    .lead {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 23px);
+      line-height: 1.5;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061018;
+      border: 0;
+    }
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.075);
+      color: var(--text);
+    }
+    .mock {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+    }
+    .screen {
+      border-radius: 26px;
+      padding: 22px;
+      min-height: 430px;
+      background: #05090f;
+      overflow: hidden;
+      position: relative;
+    }
+    .screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(75, 208, 255, 0.24), transparent 16rem),
+        linear-gradient(180deg, transparent, rgba(0,0,0,0.42));
+      pointer-events: none;
+    }
+    .source-row {
+      position: relative;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+      z-index: 1;
+    }
+    .pill {
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .pill.active {
+      background: rgba(75, 208, 255, 0.2);
+      color: var(--text);
+    }
+    .feed-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 16px;
+      margin: 12px 0;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+    .avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(75,208,255,0.86), rgba(156,255,178,0.74));
+    }
+    .line {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.2);
+      margin: 9px 0;
+    }
+    .line.short { width: 46%; }
+    .line.medium { width: 72%; }
+    .line.long { width: 92%; }
+    section {
+      margin-top: 84px;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -0.045em;
+    }
+    .section-lead {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.58;
+      max-width: 780px;
+      margin: 0 0 26px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+    .card p, li {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .card p {
+      margin: 0;
+    }
+    .notice {
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(156, 255, 178, 0.28);
+      background: rgba(156, 255, 178, 0.075);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--soft);
+      border-top: 1px solid var(--line);
+      margin-top: 78px;
+      padding-top: 24px;
+      font-size: 14px;
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: var(--text);
+    }
+    @media (max-width: 850px) {
+      header { padding-bottom: 40px; align-items: flex-start; flex-direction: column; }
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .screen { min-height: 340px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <a class="brand" href="/">
+        <span class="logo" aria-hidden="true">LF</span>
+        <span>LoungeFeed</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#pinterest">Pinterest</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Apple TV viewer · Local Host · Read-only feeds</div>
+        <h1 id="hero-title">Your feeds, relaxed on the big screen.</h1>
+        <p class="lead">
+          LoungeFeed lets people watch their own authorized social and content feeds on Apple TV through a local Mac or iPhone Host. It is built for lean-back browsing, media playback, and privacy-conscious local control.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="privacy.html">Read our privacy policy</a>
+          <a class="button secondary" href="mailto:loungefeed.app@gmail.com">Contact support</a>
+        </div>
+      </div>
+      <div class="mock" aria-label="Illustration of LoungeFeed on Apple TV">
+        <div class="screen">
+          <div class="source-row">
+            <span class="pill active">Channels</span>
+            <span class="pill">Following</span>
+            <span class="pill">Boards</span>
+          </div>
+          <div class="feed-card">
+            <div class="avatar"></div>
+            <div>
+              <div class="line short"></div>
+              <div class="line long"></div>
+              <div class="line medium"></div>
+            </div>
+          </div>
+          <div class="feed-card">
+            <div class="avatar"></div>
+            <div>
+              <div class="line medium"></div>
+              <div class="line long"></div>
+              <div class="line short"></div>
+            </div>
+          </div>
+          <div class="feed-card">
+            <div class="avatar"></div>
+            <div>
+              <div class="line short"></div>
+              <div class="line medium"></div>
+              <div class="line long"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" aria-labelledby="how-title">
+      <h2 id="how-title">How LoungeFeed works</h2>
+      <p class="section-lead">
+        LoungeFeed separates viewing from account access. The Apple TV app stays focused on watching. A local Host app on the user's Mac or iPhone handles sign-in, pairing, local caching, and source-specific API connections.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Local Host</h3>
+          <p>The Host runs on a device the user controls. It connects to authorized sources and serves content only to the paired Apple TV viewer on the local network.</p>
+        </div>
+        <div class="card">
+          <h3>Read-only by design</h3>
+          <p>LoungeFeed is for viewing. It does not post, like, follow, comment, save, or otherwise perform social-writing actions on behalf of the user.</p>
+        </div>
+        <div class="card">
+          <h3>TV-first browsing</h3>
+          <p>The viewer is optimized for a remote control, large media, replies/messages, and full-screen photo and video playback.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pinterest" aria-labelledby="pinterest-title">
+      <h2 id="pinterest-title">Pinterest integration</h2>
+      <p class="section-lead">
+        LoungeFeed is preparing a Pinterest integration that lets users view their own authorized Pinterest boards and pins on Apple TV.
+      </p>
+      <div class="notice">
+        The planned Pinterest integration is read-only and uses Pinterest OAuth. LoungeFeed will request only the minimum read scopes needed to show a user's boards, pins, and account identity. It will not collect Pinterest passwords, scrape Pinterest web pages, use Pinterest session cookies, create pins, save pins, follow accounts, or modify the user's Pinterest account.
+      </div>
+    </section>
+
+    <section aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Privacy basics</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>No password collection</h3>
+          <p>Users sign in through each source's own authorization flow. LoungeFeed does not ask users to type their source passwords into LoungeFeed.</p>
+        </div>
+        <div class="card">
+          <h3>Local tokens</h3>
+          <p>Source tokens and local cache data are stored on the user's Host device, not on a LoungeFeed cloud service.</p>
+        </div>
+        <div class="card">
+          <h3>User control</h3>
+          <p>Users can disconnect a source account and clear local cached data from the Host app.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 LoungeFeed Project. All rights reserved.</span>
+      <span>
+        <a href="privacy.html">Privacy Policy</a>
+        ·
+        <a href="mailto:loungefeed.app@gmail.com">loungefeed.app@gmail.com</a>
+      </span>
+    </footer>
+  </main>
+</body>
+</html>
