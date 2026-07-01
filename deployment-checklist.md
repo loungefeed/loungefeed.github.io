@@ -57,7 +57,7 @@ Option A is cleaner for a temporary official-looking product site.
 
 ## 3. Replace placeholders
 
-- [x] Use support email `loungefeed.app@gmail.com` in `index.html`, `privacy.html`, and `pinterest-application.md`.
+- [x] Use support email `loungefeed@outlook.com` in `index.html`, `privacy.html`, and `pinterest-application.md`.
 - [ ] Confirm `privacy.html` opens publicly without login.
 - [ ] Confirm every public link works.
 
@@ -111,7 +111,7 @@ Use the copy in `pinterest-application.md`.
 
 Do not submit a fake Standard access demo.
 
-Before Trial access is granted, we cannot show a real Pinterest OAuth/API integration. A mock video may explain product intent, but it should not be represented as a live Pinterest integration.
+Before Trial access is granted, we cannot show a real Pinterest OAuth/API integration. `PINTEREST_DEV_MOCK=1` may be used to validate LoungeFeed Host/TV UI, pagination, and local media proxy behavior, but any mock video must clearly say it is a local mock and not a live Pinterest API integration.
 
 Do not claim support for:
 
@@ -130,6 +130,7 @@ Only then implement a small OAuth/API probe.
 
 Minimum probe goals:
 
+- [x] Reserve Host UI entry for Pinterest OAuth app Client ID/Secret.
 - [ ] Start OAuth.
 - [ ] Exchange code for token.
 - [ ] Read connected account identity.

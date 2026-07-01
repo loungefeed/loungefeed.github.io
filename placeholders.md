@@ -29,7 +29,7 @@ Good examples:
 ```text
 support@loungefeed.app
 hello@loungefeed.app
-loungefeed.app@gmail.com
+loungefeed@outlook.com
 ```
 
 ### `[PUBLIC_OPERATOR_NAME]`

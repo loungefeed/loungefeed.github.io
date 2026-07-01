@@ -7,7 +7,7 @@ Replace all bracketed placeholders before submitting.
 
 - Product website: `https://loungefeed.github.io/`
 - Privacy Policy: `https://loungefeed.github.io/privacy.html`
-- Support email: `loungefeed.app@gmail.com`
+- Support email: `loungefeed@outlook.com`
 - Public operator / developer name: `LoungeFeed Project`
 
 ## App name
@@ -68,13 +68,13 @@ Use the final URL that matches the Host callback implementation.
 For local Mac Host testing:
 
 ```text
-http://127.0.0.1:4077/control/source/pinterest/oauth/callback
+http://127.0.0.1:4077/control/source/oauth/callback/pinterest
 ```
 
 Optional local alias if Pinterest accepts multiple redirect URIs:
 
 ```text
-http://localhost:4077/control/source/pinterest/oauth/callback
+http://localhost:4077/control/source/oauth/callback/pinterest
 ```
 
 For future iPhone Host, define a separate callback after the iOS Host auth flow is implemented. Do not submit an unimplemented iOS redirect URI yet.
