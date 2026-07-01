@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - LoungeFeed</title>
+  <meta name="description" content="Privacy Policy for LoungeFeed.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071018;
+      --card: rgba(255, 255, 255, 0.075);
+      --text: #f7fbff;
+      --muted: rgba(247, 251, 255, 0.72);
+      --soft: rgba(247, 251, 255, 0.52);
+      --line: rgba(247, 251, 255, 0.16);
+      --accent: #4bd0ff;
+      --accent-2: #9cffb2;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(75, 208, 255, 0.18), transparent 34rem),
+        linear-gradient(160deg, #071018 0%, #0b1621 56%, #05090f 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    a { color: var(--accent); }
+    .page {
+      width: min(900px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0 48px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 22px;
+    }
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #061018;
+      font-weight: 850;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    nav a:hover { color: var(--text); }
+    .hero {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--card);
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+    .updated {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.55;
+    }
+    section {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -0.035em;
+    }
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 20px;
+    }
+    p, li {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    ul { padding-left: 22px; }
+    strong { color: var(--text); }
+    .note {
+      color: var(--soft);
+      font-size: 14px;
+    }
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--soft);
+      margin-top: 36px;
+      font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      header { align-items: flex-start; flex-direction: column; }
+      .hero { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true">LF</span>
+        <span>LoungeFeed</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="mailto:loungefeed.app@gmail.com">Support</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Effective date: July 1, 2026</p>
+      <p class="updated">This Privacy Policy explains how LoungeFeed Project operates LoungeFeed and handles information when users connect content sources to watch their own authorized feeds on Apple TV.</p>
+    </div>
+
+    <section>
+      <h2>Overview</h2>
+      <p>
+        LoungeFeed is a local-first viewing product. The Apple TV app connects to a LoungeFeed Host app running on a user's Mac or iPhone. The Host handles source authorization, local pairing, local cache, and read-only content access for the paired Apple TV viewer.
+      </p>
+      <p>
+        LoungeFeed is designed for viewing. It does not post, like, follow, comment, save, bookmark, send messages, or perform other account-writing actions on behalf of users.
+      </p>
+    </section>
+
+    <section>
+      <h2>Information we access</h2>
+      <p>Depending on which sources a user connects, LoungeFeed may access the following information through the source's official authorization flow or API:</p>
+      <ul>
+        <li>Basic account identity, such as display name, username, and avatar.</li>
+        <li>Read-only feed, board, channel, pin, post, reply, message, image, and video metadata that the user is authorized to view.</li>
+        <li>Media URLs or media identifiers needed to display authorized images and videos inside LoungeFeed.</li>
+        <li>Local pairing status between the Host and the user's Apple TV viewer.</li>
+      </ul>
+      <p>
+        For the planned Pinterest integration, LoungeFeed intends to request only the minimum read-only scopes needed to display a user's authorized Pinterest account identity, boards, and pins.
+      </p>
+    </section>
+
+    <section>
+      <h2>Information we do not collect</h2>
+      <ul>
+        <li>LoungeFeed does not ask users to enter Pinterest passwords or other source account passwords into LoungeFeed.</li>
+        <li>LoungeFeed does not collect payment card numbers through this website.</li>
+        <li>LoungeFeed does not sell personal information.</li>
+        <li>LoungeFeed does not use Pinterest web scraping, Pinterest session cookies, or unofficial Pinterest browser automation for the planned Pinterest integration.</li>
+        <li>LoungeFeed does not create, modify, save, or delete Pinterest content.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Where data is stored</h2>
+      <p>
+        Source authorization tokens, local cache, media cache, and pairing data are stored on the user's Host device. LoungeFeed does not currently operate a cloud service that receives or stores users' source tokens, Pinterest content, or feed contents.
+      </p>
+      <p>
+        If LoungeFeed later adds an optional cloud service, this policy will be updated before that service is used for source account data.
+      </p>
+    </section>
+
+    <section>
+      <h2>How we use information</h2>
+      <p>LoungeFeed uses authorized information to:</p>
+      <ul>
+        <li>Show the user's selected feeds and media on Apple TV.</li>
+        <li>Display account connection status in the Host app.</li>
+        <li>Cache content locally for performance and playback reliability.</li>
+        <li>Protect users from unsafe or unwanted content where content safety controls apply.</li>
+        <li>Diagnose local Host connectivity and playback issues.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pinterest integration</h2>
+      <p>
+        LoungeFeed's planned Pinterest integration is read-only. It will use Pinterest OAuth and official Pinterest API access after Pinterest grants the required developer access. The integration is intended to let users view their own authorized Pinterest boards and pins on Apple TV through their local LoungeFeed Host.
+      </p>
+      <p>LoungeFeed will not use Pinterest API access to:</p>
+      <ul>
+        <li>Create, edit, delete, or save pins.</li>
+        <li>Follow or unfollow users or boards.</li>
+        <li>Post comments or messages.</li>
+        <li>Access Pinterest passwords or session cookies.</li>
+        <li>Scrape Pinterest web pages.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Sharing</h2>
+      <p>
+        LoungeFeed does not sell source data or feed contents. Content is shared locally from the Host to the paired Apple TV viewer so the user can watch it. LoungeFeed may use platform services such as Apple, GitHub Pages, or domain/DNS providers to operate the app, website, or distribution infrastructure, but those services are not used to sell source account data.
+      </p>
+    </section>
+
+    <section>
+      <h2>User choices</h2>
+      <ul>
+        <li>Users can disconnect a source account inside LoungeFeed Host.</li>
+        <li>Users can clear local cached media and local feed data inside LoungeFeed Host where cache controls are available.</li>
+        <li>Users can revoke source authorization through the connected source's own account settings.</li>
+        <li>Users can uninstall LoungeFeed Host to remove local app data according to the operating system's app data behavior.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Children</h2>
+      <p>
+        LoungeFeed is not directed to children under 13. Users should only connect accounts they are authorized to use and view.
+      </p>
+    </section>
+
+    <section>
+      <h2>Changes</h2>
+      <p>
+        We may update this Privacy Policy as LoungeFeed changes. The effective date at the top of this page will be updated when material changes are made.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        For privacy questions or support, contact us at <a href="mailto:loungefeed.app@gmail.com">loungefeed.app@gmail.com</a>.
+      </p>
+      <p class="note">
+        LoungeFeed is not affiliated with Pinterest Inc. Pinterest is a trademark of its respective owner.
+      </p>
+    </section>
+
+    <footer>
+      <span>© 2026 LoungeFeed Project. All rights reserved.</span>
+      <span><a href="index.html">Home</a></span>
+    </footer>
+  </main>
+</body>
+</html>
