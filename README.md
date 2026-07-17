@@ -6,6 +6,7 @@ The public files are:
 
 - `index.html` - product landing page
 - `privacy.html` - public Privacy Policy
+- `support.html` - privacy-safe diagnostic report upload page
 
 The internal application files are:
 

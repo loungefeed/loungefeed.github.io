@@ -1,6 +1,6 @@
 # LoungeFeed Pinterest access preparation checklist
 
-This checklist keeps the Pinterest application lightweight and avoids unnecessary engineering before Trial access is granted.
+This checklist records the minimum Pinterest Trial integration and the work needed before Standard access.
 
 ## 1. Create product-owned public accounts
 
@@ -73,6 +73,8 @@ Use a legal company/studio name later if available.
 
 Submit the smallest read-only application.
 
+- [x] Trial access granted on 2026-07-15.
+
 ### App name
 
 ```text
@@ -107,11 +109,11 @@ Do not request write scopes for the first application.
 
 Use the copy in `pinterest-application.md`.
 
-## 5. What not to submit yet
+## 5. What not to claim yet
 
 Do not submit a fake Standard access demo.
 
-Before Trial access is granted, we cannot show a real Pinterest OAuth/API integration. `PINTEREST_DEV_MOCK=1` may be used to validate LoungeFeed Host/TV UI, pagination, and local media proxy behavior, but any mock video must clearly say it is a local mock and not a live Pinterest API integration.
+`PINTEREST_DEV_MOCK=1` may still be used for deterministic Host/TV UI tests, but it must never be presented as a live Pinterest API integration or used in the Standard access demo.
 
 Do not claim support for:
 
@@ -131,6 +133,11 @@ Only then implement a small OAuth/API probe.
 Minimum probe goals:
 
 - [x] Reserve Host UI entry for Pinterest OAuth app Client ID/Secret.
+- [x] Add `http://localhost:4077/control/source/oauth/callback/pinterest` as the exact Mac Host redirect URI.
+- [x] Validate real Mac OAuth and account identity, and open Pinterest OAuth in the system browser so Google sign-in is not constrained by Electron popup handling.
+- [x] Keep the default Mac preview bounded to the account's own Pins and board Pins; do not represent it as Pinterest Home/For You.
+- [x] Validate the production Mac preview against a real authorized account with public test Pins (13 Pins loaded).
+- [x] Save the granted App ID and App secret key encrypted in Mac Host.
 - [ ] Start OAuth.
 - [ ] Exchange code for token.
 - [ ] Read connected account identity.
@@ -142,7 +149,7 @@ If the probe works, record the Standard access demo using the script in `pintere
 
 ## 7. Release-stage credential decision
 
-Do not solve this before Trial access.
+Decide this only after the Trial OAuth/API probe is validated.
 
 Release options to decide later:
 
@@ -150,4 +157,4 @@ Release options to decide later:
 - Add a small LoungeFeed service for token exchange if the product later justifies the operational cost.
 - Drop Pinterest if API access/terms make the source too expensive or risky.
 
-For now, Trial access first.
+For now, validate the Mac Trial OAuth/API path first, then implement the iPhone-equivalent path and prepare the real Standard access demo.

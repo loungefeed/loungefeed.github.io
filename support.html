@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Upload a privacy-safe LoungeFeed diagnostic report and receive a Support ID.">
+  <title>LoungeFeed Support</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #101d30;
+      --panel-soft: #16263c;
+      --text: #f4f7fb;
+      --muted: #adbbcf;
+      --line: rgba(255, 255, 255, 0.11);
+      --accent: #6eb7ff;
+      --success: #73d9aa;
+      --error: #ff9b9b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 80% 0%, #17375c 0, transparent 42%), var(--bg);
+      color: var(--text);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--accent); }
+    .page { width: min(880px, calc(100% - 36px)); margin: 0 auto; padding: 28px 0 48px; }
+    header, footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-weight: 750; }
+    .logo { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #72c4ff, #7b7cff); font-size: 13px; }
+    nav { display: flex; gap: 20px; }
+    nav a, footer a { color: var(--muted); text-decoration: none; }
+    main { margin: 72px 0; }
+    .eyebrow { color: var(--accent); font-size: 13px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 10px 0 12px; font-size: clamp(38px, 7vw, 64px); line-height: 1.05; letter-spacing: -.035em; }
+    .lead { max-width: 680px; color: var(--muted); font-size: 19px; }
+    .card { margin-top: 34px; padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: rgba(16, 29, 48, .88); box-shadow: 0 24px 80px rgba(0, 0, 0, .26); }
+    .steps { margin: 0 0 24px; padding-left: 22px; color: var(--muted); }
+    .steps strong { color: var(--text); }
+    label { display: block; margin-bottom: 9px; font-weight: 700; }
+    input[type="file"] { width: 100%; padding: 15px; border: 1px dashed rgba(255,255,255,.24); border-radius: 14px; background: var(--panel-soft); color: var(--muted); }
+    button { margin-top: 16px; padding: 12px 18px; border: 0; border-radius: 12px; background: var(--accent); color: #07111f; font: inherit; font-weight: 800; cursor: pointer; }
+    button:disabled { cursor: wait; opacity: .6; }
+    .status { min-height: 26px; margin-top: 16px; color: var(--muted); }
+    .status.success { color: var(--success); }
+    .status.error { color: var(--error); }
+    .privacy { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+    code { padding: 3px 7px; border-radius: 7px; background: var(--panel-soft); color: var(--text); }
+    footer { padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+    @media (max-width: 620px) { header, footer { align-items: flex-start; flex-direction: column; } main { margin: 48px 0; } .card { padding: 22px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="index.html"><span class="logo" aria-hidden="true">LF</span><span>LoungeFeed</span></a>
+      <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="privacy.html">Privacy</a></nav>
+    </header>
+
+    <main>
+      <div class="eyebrow">Private diagnostic upload</div>
+      <h1>Send a support report.</h1>
+      <p class="lead">Upload the privacy-safe diagnostic file created by LoungeFeed Host. You will receive a short Support ID to include when contacting us.</p>
+
+      <section class="card" aria-labelledby="upload-title">
+        <h2 id="upload-title">Upload report</h2>
+        <ol class="steps">
+          <li>In LoungeFeed Host, open <strong>Support Diagnostics</strong>.</li>
+          <li>Choose <strong>Create diagnostic report</strong>.</li>
+          <li>Select the generated <code>.loungefeed-diagnostics.json</code> file below.</li>
+        </ol>
+        <form id="upload-form">
+          <label for="report-file">Diagnostic report</label>
+          <input id="report-file" name="report" type="file" accept=".json,.loungefeed-diagnostics.json,application/json" required>
+          <button id="upload-button" type="submit">Upload report</button>
+        </form>
+        <p id="upload-status" class="status" role="status" aria-live="polite"></p>
+        <p class="privacy">Reports are limited to 5 MB, stored in a private Cloudflare R2 bucket, and automatically deleted after 30 days. The upload endpoint rejects credentials, cookies, request bodies, account content, media, and upstream URLs. After uploading, email the Support ID and a short description of the problem to <a href="mailto:loungefeed@outlook.com">loungefeed@outlook.com</a>.</p>
+      </section>
+    </main>
+
+    <footer><span>© 2026 LoungeFeed Project.</span><span><a href="privacy.html">Privacy Policy</a> · <a href="mailto:loungefeed@outlook.com">Email support</a></span></footer>
+  </div>
+
+  <script>
+    const endpoint = "https://loungefeed-support.loungefeed.workers.dev/v1/reports";
+    const form = document.getElementById("upload-form");
+    const fileInput = document.getElementById("report-file");
+    const button = document.getElementById("upload-button");
+    const status = document.getElementById("upload-status");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const file = fileInput.files[0];
+      status.className = "status";
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        status.textContent = "This report is larger than the 5 MB upload limit.";
+        status.classList.add("error");
+        return;
+      }
+      button.disabled = true;
+      status.textContent = "Uploading the diagnostic report…";
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: file,
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.message || "The report was not accepted.");
+        status.textContent = `Upload complete. Your Support ID is ${result.supportId}.`;
+        status.classList.add("success");
+        form.reset();
+      } catch (error) {
+        status.textContent = error instanceof Error ? error.message : "Upload failed. Please try again.";
+        status.classList.add("error");
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

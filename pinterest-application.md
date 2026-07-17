@@ -68,13 +68,14 @@ Use the final URL that matches the Host callback implementation.
 For local Mac Host testing:
 
 ```text
-http://127.0.0.1:4077/control/source/oauth/callback/pinterest
+http://localhost:4077/control/source/oauth/callback/pinterest
 ```
 
-Optional local alias if Pinterest accepts multiple redirect URIs:
+The numeric-loopback alias is intentionally not used because Pinterest's app
+console does not accept it as an HTTP localhost redirect:
 
 ```text
-http://localhost:4077/control/source/oauth/callback/pinterest
+http://127.0.0.1:4077/control/source/oauth/callback/pinterest
 ```
 
 For future iPhone Host, define a separate callback after the iOS Host auth flow is implemented. Do not submit an unimplemented iOS redirect URI yet.
