@@ -143,7 +143,7 @@
 
     <div class="hero">
       <h1>Privacy Policy</h1>
-      <p class="updated">Effective date: July 17, 2026</p>
+      <p class="updated">Effective date: July 21, 2026</p>
       <p class="updated">This Privacy Policy explains how LoungeFeed Project operates LoungeFeed and handles information when users connect content sources to watch their own authorized feeds on Apple TV.</p>
     </div>
 
@@ -189,6 +189,9 @@
       </p>
       <p>
         If a user explicitly uploads a privacy-safe diagnostic report through the Support page, the report is stored in a private Cloudflare R2 bucket for troubleshooting and is automatically deleted after 30 days. Reports exclude credentials, cookies, request bodies, upstream URLs, account content, and media. Diagnostic uploads are optional and are never sent in the background.
+      </p>
+      <p>
+        If a user opens the optional Apple TV content-preferences page by scanning a code shown on their television, LoungeFeed stores a random Apple TV identifier, a one-way hash of a device key, the selected preference, and (when enabled) the time of the adult confirmation in Cloudflare D1. This record does not contain feed content, media, source credentials, account names, or Apple Account information. The short-lived code session expires after 10 minutes.
       </p>
     </section>
 

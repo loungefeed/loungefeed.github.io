@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Content preferences · LoungeFeed</title>
+  <style>
+    :root { color-scheme: dark; --bg:#07111f; --panel:#101d30; --text:#f4f7fb; --muted:#adbbcf; --line:rgba(255,255,255,.12); --accent:#6eb7ff; --warning:#ffd166; --success:#73d9aa; --error:#ff9b9b; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; }
+    body { min-height:100vh; margin:0; display:grid; place-items:center; background:radial-gradient(circle at 80% 0%,#17375c 0,transparent 42%),var(--bg); color:var(--text); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(660px,calc(100% - 36px)); padding:42px 0; }
+    .brand { display:flex; gap:11px; align-items:center; color:var(--text); font-size:18px; font-weight:760; text-decoration:none; }
+    .logo { display:grid; place-items:center; width:36px; height:36px; border-radius:11px; background:linear-gradient(135deg,var(--accent),#9cffb2); color:#07111f; font-size:13px; font-weight:850; }
+    .eyebrow { margin-top:46px; color:var(--accent); font-size:13px; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:10px 0 12px; font-size:clamp(37px,8vw,58px); line-height:1.05; letter-spacing:-.045em; }
+    .lead,.note { color:var(--muted); font-size:18px; }
+    .card { margin-top:30px; padding:28px; border:1px solid var(--line); border-radius:22px; background:rgba(16,29,48,.9); box-shadow:0 24px 80px rgba(0,0,0,.26); }
+    h2 { margin:0 0 12px; font-size:21px; }
+    .check { display:flex; align-items:flex-start; gap:12px; margin:24px 0; color:var(--muted); }
+    .check input { width:21px; height:21px; margin:3px 0 0; accent-color:var(--accent); }
+    .toggle-row { display:flex; align-items:center; justify-content:space-between; gap:22px; padding:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .toggle-row strong { display:block; color:var(--text); }
+    .toggle { position:relative; width:58px; height:34px; flex:none; }
+    .toggle input { opacity:0; width:0; height:0; }
+    .slider { position:absolute; inset:0; cursor:pointer; border-radius:999px; background:rgba(255,255,255,.17); transition:.18s; }
+    .slider::before { content:""; position:absolute; width:26px; height:26px; left:4px; top:4px; border-radius:50%; background:white; transition:.18s; }
+    input:checked + .slider { background:rgba(115,217,170,.8); }
+    input:checked + .slider::before { transform:translateX(24px); }
+    button { margin-top:24px; padding:12px 18px; border:0; border-radius:12px; background:var(--accent); color:#07111f; font:inherit; font-weight:800; cursor:pointer; }
+    button:disabled { opacity:.55; cursor:wait; }
+    .status { min-height:25px; margin:16px 0 0; color:var(--muted); }
+    .status.success { color:var(--success); } .status.error { color:var(--error); }
+    .notice { margin-top:19px; padding:14px 16px; border-left:3px solid var(--warning); border-radius:8px; background:rgba(255,209,102,.08); color:var(--muted); font-size:14px; }
+    dialog { width:min(510px,calc(100% - 36px)); border:1px solid var(--line); border-radius:20px; padding:28px; color:var(--text); background:var(--panel); box-shadow:0 24px 80px rgba(0,0,0,.5); }
+    dialog::backdrop { background:rgba(0,0,0,.68); }
+    dialog h2 { margin-bottom:10px; } dialog p { color:var(--muted); }
+    .dialog-actions { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .secondary { background:transparent; color:var(--text); border:1px solid var(--line); }
+    footer { margin-top:32px; color:var(--muted); font-size:14px; }
+    footer a { color:inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="brand" href="index.html"><span class="logo" aria-hidden="true">LF</span><span>LoungeFeed</span></a>
+    <div class="eyebrow">Apple TV content preference</div>
+    <h1>Content preferences</h1>
+    <p class="lead">This page manages the content preference for the Apple TV that displayed this code. LoungeFeed keeps sensitive content masked by default.</p>
+    <section class="card" id="content" hidden>
+      <h2>Adult content</h2>
+      <p class="note">Some connected sources may label posts as adult or sensitive. Enabling this preference can allow that Apple TV to offer an additional local screen-protection step.</p>
+      <label class="check"><input id="age-confirmation" type="checkbox"><span>I confirm that I am 18 or older and want to manage this preference.</span></label>
+      <div class="toggle-row"><div><strong>Allow the Apple TV to offer local access</strong><span class="note">The Apple TV remains masked until its local protection is completed.</span></div><label class="toggle" aria-label="Allow local access"><input id="preference" type="checkbox"><span class="slider"></span></label></div>
+      <p id="pro-note" class="notice" hidden>A valid Pro membership is required for this preference to take effect. Without it, enabling this switch does not reveal content.</p>
+      <button id="save" type="button">Save preference</button><p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+    <section class="card" id="unavailable" hidden><h2>This code is no longer active</h2><p class="note">Return to LoungeFeed on Apple TV and select Content preferences again to display a new code.</p></section>
+    <footer><a href="privacy.html">Privacy Policy</a> · LoungeFeed stores only this Apple TV’s random preference identifier and the selected setting. It does not receive your feed content, media, social credentials, or Apple Account information.</footer>
+  </main>
+  <dialog id="pro-dialog" aria-labelledby="pro-dialog-title"><h2 id="pro-dialog-title">Before you continue</h2><p>This preference only takes effect on an Apple TV with a valid Pro membership. If that membership is not active, choosing enable will not reveal content.</p><div class="dialog-actions"><button class="secondary" id="keep-masked" type="button">Keep masked</button><button id="enable-anyway" type="button">Enable preference</button></div></dialog>
+  <script>
+    const endpoint = "https://loungefeed-support.loungefeed.workers.dev/v1/content-preferences/web-session";
+    const session = new URLSearchParams(location.search).get("session");
+    const content = document.getElementById("content"), unavailable = document.getElementById("unavailable"), age = document.getElementById("age-confirmation"), preference = document.getElementById("preference"), save = document.getElementById("save"), status = document.getElementById("status"), proNote = document.getElementById("pro-note"), dialog = document.getElementById("pro-dialog");
+    function url() { return `${endpoint}?session=${encodeURIComponent(session || "")}`; }
+    function showStatus(message, kind = "") { status.className = `status ${kind}`; status.textContent = message; }
+    function setUnavailable() { content.hidden = true; unavailable.hidden = false; }
+    async function load() { if (!session) return setUnavailable(); try { const response = await fetch(url(), { cache: "no-store" }); const result = await response.json().catch(() => ({})); if (!response.ok) throw new Error(result.error || "session_expired"); content.hidden = false; preference.checked = result.enabled === true; proNote.hidden = result.proEligible === true; } catch { setUnavailable(); } }
+    async function savePreference() { if (!age.checked) { showStatus("Confirm that you are 18 or older before saving this preference.", "error"); return; } save.disabled = true; showStatus("Saving preference…"); try { const response = await fetch(url(), { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ageConfirmed: true, preference: preference.checked ? "enabled" : "disabled" }) }); const result = await response.json().catch(() => ({})); if (!response.ok) throw new Error(result.error || "The preference could not be saved."); showStatus("Saved. Return to LoungeFeed on Apple TV to continue.", "success"); } catch (error) { showStatus(error instanceof Error ? error.message : "The preference could not be saved.", "error"); } finally { save.disabled = false; } }
+    save.addEventListener("click", () => { if (preference.checked) { dialog.showModal(); } else { savePreference(); } });
+    document.getElementById("keep-masked").addEventListener("click", () => { preference.checked = false; dialog.close(); });
+    document.getElementById("enable-anyway").addEventListener("click", () => { dialog.close(); savePreference(); });
+    load();
+  </script>
+</body>
+</html>
