@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Upload a privacy-safe LoungeFeed diagnostic report and receive a Support ID.">
+  <link rel="icon" href="assets/icons/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="manifest" href="site.webmanifest">
   <title>LoungeFeed Support</title>
   <style>
     :root {
@@ -30,7 +33,7 @@
     .page { width: min(880px, calc(100% - 36px)); margin: 0 auto; padding: 28px 0 48px; }
     header, footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
     .brand { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-weight: 750; }
-    .logo { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, #72c4ff, #7b7cff); font-size: 13px; }
+    .logo { width: 38px; height: 38px; border-radius: 12px; object-fit: cover; }
     nav { display: flex; gap: 20px; }
     nav a, footer a { color: var(--muted); text-decoration: none; }
     main { margin: 72px 0; }
@@ -56,7 +59,7 @@
 <body>
   <div class="page">
     <header>
-      <a class="brand" href="index.html"><span class="logo" aria-hidden="true">LF</span><span>LoungeFeed</span></a>
+      <a class="brand" href="index.html"><img class="logo" src="assets/icons/icon-192.png" alt=""><span>LoungeFeed</span></a>
       <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="privacy.html">Privacy</a></nav>
     </header>
 

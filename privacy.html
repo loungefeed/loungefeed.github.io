@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy - LoungeFeed</title>
   <meta name="description" content="Privacy Policy for LoungeFeed.">
+  <link rel="icon" href="assets/icons/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="manifest" href="site.webmanifest">
   <style>
     :root {
       color-scheme: dark;
@@ -51,14 +54,10 @@
       font-size: 22px;
     }
     .logo {
-      display: grid;
-      place-items: center;
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #061018;
-      font-weight: 850;
+      object-fit: cover;
     }
     nav {
       display: flex;
@@ -132,7 +131,7 @@
   <main class="page">
     <header>
       <a class="brand" href="index.html">
-        <span class="logo" aria-hidden="true">LF</span>
+        <img class="logo" src="assets/icons/icon-192.png" alt="">
         <span>LoungeFeed</span>
       </a>
       <nav aria-label="Main navigation">
@@ -191,7 +190,7 @@
         If a user explicitly uploads a privacy-safe diagnostic report through the Support page, the report is stored in a private Cloudflare R2 bucket for troubleshooting and is automatically deleted after 30 days. Reports exclude credentials, cookies, request bodies, upstream URLs, account content, and media. Diagnostic uploads are optional and are never sent in the background.
       </p>
       <p>
-        If a user opens the optional Apple TV content-preferences page by scanning a code shown on their television, LoungeFeed stores a random Apple TV identifier, a one-way hash of a device key, the selected preference, and (when enabled) the time of the adult confirmation in Cloudflare D1. This record does not contain feed content, media, source credentials, account names, or Apple Account information. The short-lived code session expires after 10 minutes. Disabled preference records are automatically removed after 90 days without activity.
+        If a user opens the optional Apple TV content-controls page by scanning a code shown on their television, LoungeFeed stores a random Apple TV identifier, a one-way hash of a device key, the selected preference, and (when enabled) the time of age confirmation in Cloudflare D1. This record does not contain feed content, media, source credentials, account names, or Apple Account information. The short-lived code session expires after 10 minutes. Disabled preference records are automatically removed after 90 days without activity.
       </p>
     </section>
 

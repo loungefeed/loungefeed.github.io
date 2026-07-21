@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LoungeFeed - Watch your feeds on Apple TV</title>
   <meta name="description" content="LoungeFeed lets people watch their own authorized social and content feeds on Apple TV through a local Mac or iPhone Host.">
+  <link rel="icon" href="assets/icons/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="manifest" href="site.webmanifest">
   <style>
     :root {
       color-scheme: dark;
@@ -52,14 +55,10 @@
       font-size: 22px;
     }
     .logo {
-      display: grid;
-      place-items: center;
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #061018;
-      font-weight: 850;
+      object-fit: cover;
       box-shadow: 0 16px 40px rgba(75, 208, 255, 0.2);
     }
     nav {
@@ -277,7 +276,7 @@
   <main class="page">
     <header>
       <a class="brand" href="/">
-        <span class="logo" aria-hidden="true">LF</span>
+        <img class="logo" src="assets/icons/icon-192.png" alt="">
         <span>LoungeFeed</span>
       </a>
       <nav aria-label="Main navigation">
