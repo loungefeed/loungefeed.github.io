@@ -223,11 +223,13 @@ h1 {
 .requirement-bar strong {
   display: block;
   margin-bottom: 6px;
+  color: var(--gold);
   font-size: clamp(21px, 2.5vw, 29px);
   line-height: 1.18;
   letter-spacing: -0.025em;
 }
 .requirement-bar p { margin: 0; color: var(--muted); font-size: 15px; }
+.requirement-bar .requirement-secondary { margin-top: 5px; color: var(--soft); font-size: 14px; }
 .text-link {
   color: var(--cyan);
   font-weight: 750;
