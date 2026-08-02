@@ -99,7 +99,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
   align-items: center;
   gap: clamp(38px, 6vw, 78px);
-  padding: 76px 0 46px;
+  padding: 52px 0 26px;
 }
 
 .eyebrow {
@@ -150,7 +150,7 @@ h1 {
   background: linear-gradient(125deg, var(--cyan), var(--mint));
 }
 
-.visual-stack { position: relative; padding: 22px 0 28px; }
+.visual-stack { position: relative; padding: 8px 0 14px; }
 .visual-stack::before {
   content: "";
   position: absolute;
@@ -203,7 +203,7 @@ h1 {
 .tv-stand::after { transform: skewX(16deg); }
 
 .requirement-bar {
-  margin: 40px 0 0;
+  margin: 18px 0 0;
   padding: 25px 28px;
   border: 1px solid rgba(85, 217, 255, 0.36);
   border-radius: 20px;
@@ -240,6 +240,7 @@ h1 {
 .text-link:hover { color: var(--text); text-decoration-color: currentColor; }
 
 .section { padding: 112px 0 0; }
+.home-page .section { padding-top: 64px; }
 .section-heading { max-width: 760px; margin-bottom: 36px; }
 h2 {
   margin-bottom: 14px;
@@ -278,6 +279,7 @@ h2 {
   gap: clamp(36px, 7vw, 86px);
   margin-top: 52px;
 }
+.home-page .story { margin-top: 34px; }
 .story.reverse { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
 .story.reverse .story-media { order: -1; }
 .story-copy h3 { margin-bottom: 14px; font-size: clamp(30px, 4vw, 44px); line-height: 1.07; letter-spacing: -0.04em; }
@@ -303,6 +305,7 @@ h2 {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
+.home-page .feature-pair { margin-top: 48px; padding: 24px 0; }
 .feature-essay h3 {
   margin-bottom: 12px;
   font-size: clamp(27px, 3.2vw, 38px);
@@ -366,6 +369,7 @@ h2 {
   color: var(--soft);
   font-size: 14px;
 }
+.home-page .site-footer { margin-top: 58px; }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 18px; }
 .footer-links a { color: var(--muted); text-decoration: none; }
 .footer-links a:hover { color: var(--text); }
@@ -449,7 +453,7 @@ h2 {
 
 .host-screens {
   display: grid;
-  grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.58fr);
+  grid-template-columns: minmax(0, 1.95fr) minmax(220px, 0.58fr);
   align-items: stretch;
   gap: 18px;
 }
@@ -462,7 +466,7 @@ h2 {
 .device-shot.mac { aspect-ratio: 16 / 10; }
 .device-shot.phone { aspect-ratio: 0.56 / 1; max-height: 620px; justify-self: center; }
 .device-shot img { width: 100%; height: 100%; object-fit: cover; }
-.device-shot.mac img { object-position: center 67%; }
+.device-shot.mac img { object-position: center 67%; transform: scale(1.32); }
 .device-shot figcaption { padding: 12px 15px; color: var(--muted); font-size: 13px; }
 
 .install-list { display: grid; gap: 12px; padding: 0; list-style: none; counter-reset: install-step; }
@@ -505,6 +509,7 @@ h2 {
   .hero, .host-hero { padding-top: 46px; }
   h1 { font-size: clamp(45px, 14vw, 66px); }
   .section { padding-top: 82px; }
+  .home-page .section { padding-top: 48px; }
   .source-cloud, .steps-grid, .download-grid { grid-template-columns: 1fr 1fr; }
   .feature-pair { grid-template-columns: 1fr; }
   .privacy-panel, .explore-panel { grid-template-columns: 1fr; }
