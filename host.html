@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get LoungeFeed Host</title>
+  <meta name="description" content="Install LoungeFeed Host on Mac or iPhone, connect your sources, and pair live feeds with LoungeFeed on Apple TV.">
+  <meta name="theme-color" content="#05080d">
+  <link rel="icon" href="assets/icons/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="LoungeFeed home"><img src="assets/icons/icon-192.png" alt=""><span>LoungeFeed</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html#features">Features</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#setup">Setup</a>
+        <a href="support.html">Support</a>
+        <a class="nav-cta" href="index.html">Product overview</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="host-hero" aria-labelledby="host-title">
+        <p class="eyebrow">The local companion for LoungeFeed</p>
+        <h1 id="host-title">Bring your live feeds to Apple TV.</h1>
+        <p class="hero-lead">LoungeFeed Host connects the accounts you authorize, prepares a private local viewing feed, and pairs it with LoungeFeed on Apple TV.</p>
+        <span class="required-badge">Required for live feeds</span>
+      </section>
+
+      <section class="connection-flow" aria-label="How LoungeFeed Host connects to Apple TV">
+        <div class="flow-device"><span class="flow-icon" aria-hidden="true">⌘</span><strong>Mac Host</strong><span>Runs locally on Apple silicon</span></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-device"><span class="flow-icon" aria-hidden="true">⌁</span><strong>Your local network</strong><span>Private pairing between your devices</span></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-device"><span class="flow-icon" aria-hidden="true">▣</span><strong>Apple TV</strong><span>Browse, read, and play media</span></div>
+      </section>
+
+      <section class="section" id="downloads" aria-labelledby="download-title">
+        <div class="section-heading">
+          <p class="eyebrow">Choose where your Host runs</p>
+          <h2 id="download-title">Mac or iPhone. The Apple TV experience is the same.</h2>
+          <p class="section-lead">Use the device that normally stays available on the same network as your Apple TV.</p>
+        </div>
+
+        <div class="download-grid" aria-label="Host downloads">
+          <article class="download-card">
+            <span class="platform-tag">Direct download</span>
+            <h2>Mac Host</h2>
+            <p class="download-detail" id="mac-detail">Apple silicon · Release information coming soon</p>
+            <p class="download-status" id="mac-status">The Developer ID signed and Apple-notarized download is being prepared.</p>
+            <p class="download-meta" id="mac-meta">The download will include version and integrity information.</p>
+            <a class="button unavailable" id="mac-action" aria-disabled="true">Preparing for launch</a>
+          </article>
+          <article class="download-card">
+            <span class="platform-tag">Apple App Store</span>
+            <h2>iPhone Host</h2>
+            <p class="download-detail" id="iphone-detail">Distributed through the App Store</p>
+            <p class="download-status" id="iphone-status">The iPhone App Store release is being prepared.</p>
+            <p class="download-meta" id="iphone-meta">Install and updates will be managed by Apple.</p>
+            <a class="button unavailable" id="iphone-action" aria-disabled="true">Preparing for launch</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="host-view-title">
+        <div class="section-heading">
+          <p class="eyebrow">A Host you can see and control</p>
+          <h2 id="host-view-title">Connect accounts, check status, and shape the TV display.</h2>
+          <p class="section-lead">Both Hosts provide the same essential account and Apple TV controls in an interface designed for their screen.</p>
+        </div>
+        <div class="host-screens">
+          <figure class="device-shot mac"><img src="assets/screens/mac-host.png" loading="lazy" alt="LoungeFeed Mac Host showing connected sources and Apple TV display settings"></figure>
+          <figure class="device-shot phone"><img src="assets/screens/iphone-host.png" loading="lazy" alt="LoungeFeed iPhone Host showing its source account controls"></figure>
+        </div>
+      </section>
+
+      <section class="section" id="setup" aria-labelledby="setup-title">
+        <div class="section-heading">
+          <p class="eyebrow">After installation</p>
+          <h2 id="setup-title">Pair in a few minutes.</h2>
+        </div>
+        <ol class="install-list">
+          <li><span><strong>Open LoungeFeed Host.</strong><br>Allow local-network access when macOS or iOS requests it.</span></li>
+          <li><span><strong>Connect the sources you want to watch.</strong><br>Sign in through each source's authorization experience and wait for its status to show ready.</span></li>
+          <li><span><strong>Keep Host and Apple TV on the same network.</strong><br>LoungeFeed normally discovers the Host automatically.</span></li>
+          <li><span><strong>Pair from Apple TV.</strong><br>Select the Host and enter the six-digit code shown in the Host app.</span></li>
+        </ol>
+      </section>
+
+      <section class="section" aria-labelledby="trust-title">
+        <div class="privacy-panel">
+          <div>
+            <p class="eyebrow">What stays on the Host</p>
+            <h2 id="trust-title">Account access remains on a device you control.</h2>
+            <p>Source sessions, credentials, feed cache, and media cache stay on the Host. The paired Apple TV receives read-only, normalized data through the local LoungeFeed connection.</p>
+          </div>
+          <ul class="check-list"><li>Developer ID signed and Apple-notarized Mac releases</li><li>iPhone releases through the App Store</li><li>Local pairing code</li><li>Cache and storage controls</li><li>Privacy-safe diagnostic reports</li></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Need help installing or pairing LoungeFeed Host?</span>
+      <span class="footer-links"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="mailto:loungefeed@outlook.com">loungefeed@outlook.com</a></span>
+    </footer>
+  </div>
+
+  <script>
+    const setDownload = (platform, data) => {
+      const action = document.getElementById(`${platform}-action`);
+      if (data.status !== "available") return;
+      const url = platform === "mac" ? data.downloadURL : data.appStoreURL;
+      if (!url) return;
+      action.href = url;
+      action.removeAttribute("aria-disabled");
+      action.classList.remove("unavailable");
+      action.classList.add("primary");
+      action.textContent = platform === "mac" ? "Download for Mac" : "View on the App Store";
+    };
+
+    fetch("host-downloads.json", { cache: "no-store" })
+      .then(response => response.ok ? response.json() : Promise.reject(new Error("metadata unavailable")))
+      .then(data => {
+        const mac = data.macOS || {};
+        const iphone = data.iPhone || {};
+        if (mac.version) document.getElementById("mac-detail").textContent = `${mac.architecture || "Apple silicon"} · Version ${mac.version}`;
+        if (mac.minimumSystemVersion) document.getElementById("mac-meta").textContent = `Requires macOS ${mac.minimumSystemVersion} or later`;
+        if (mac.status === "available") document.getElementById("mac-status").textContent = "Developer ID signed, notarized by Apple, and ready for direct installation.";
+        if (iphone.version) document.getElementById("iphone-detail").textContent = `Version ${iphone.version} · App Store`;
+        if (iphone.status === "available") document.getElementById("iphone-status").textContent = "Available from Apple's App Store.";
+        setDownload("mac", mac);
+        setDownload("iphone", iphone);
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

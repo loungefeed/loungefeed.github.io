@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "submissionReady": false,
+  "macOS": {
+    "status": "preparing",
+    "version": null,
+    "architecture": "Apple silicon",
+    "minimumSystemVersion": null,
+    "downloadURL": null,
+    "sha256": null
+  },
+  "iPhone": {
+    "status": "preparing",
+    "version": null,
+    "appStoreURL": null
+  }
+}
