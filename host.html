@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/icons/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=20260802-2">
 </head>
 <body>
   <div class="site-shell">
@@ -32,11 +32,26 @@
       </section>
 
       <section class="connection-flow" aria-label="How LoungeFeed Host connects to Apple TV">
-        <div class="flow-device"><span class="flow-icon" aria-hidden="true">⌘</span><strong>Mac Host</strong><span>Runs locally on Apple silicon</span></div>
+        <div class="flow-device">
+          <span class="flow-step">01 · Host</span>
+          <svg class="flow-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="5" y="10" width="39" height="30" rx="4"></rect><path d="M16 51h17M24.5 40v11"></path><rect x="46" y="18" width="13" height="31" rx="3"></rect><path d="M51 44h3"></path></svg>
+          <strong>Mac or iPhone Host</strong>
+          <p>Signs in to your sources, keeps account sessions local, and prepares the viewing feed.</p>
+        </div>
         <span class="flow-arrow" aria-hidden="true">→</span>
-        <div class="flow-device"><span class="flow-icon" aria-hidden="true">⌁</span><strong>Your local network</strong><span>Private pairing between your devices</span></div>
+        <div class="flow-device">
+          <span class="flow-step">02 · Connection</span>
+          <svg class="flow-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 24c13-12 35-12 48 0M16 33c9-8 23-8 32 0M24 42c5-4 11-4 16 0"></path><circle cx="32" cy="51" r="3"></circle></svg>
+          <strong>Your local network</strong>
+          <p>Carries the paired, read-only feed directly between the Host and Apple TV.</p>
+        </div>
         <span class="flow-arrow" aria-hidden="true">→</span>
-        <div class="flow-device"><span class="flow-icon" aria-hidden="true">▣</span><strong>Apple TV</strong><span>Browse, read, and play media</span></div>
+        <div class="flow-device">
+          <span class="flow-step">03 · Viewer</span>
+          <svg class="flow-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="9" width="52" height="36" rx="5"></rect><path d="M22 55h20M27 45l-3 10M37 45l3 10"></path><path d="M28 20l13 7-13 7z"></path></svg>
+          <strong>LoungeFeed on Apple TV</strong>
+          <p>Displays posts, replies, photos, and video with controls designed for the remote.</p>
+        </div>
       </section>
 
       <section class="section" id="downloads" aria-labelledby="download-title">
