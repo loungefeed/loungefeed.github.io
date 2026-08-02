@@ -128,14 +128,6 @@ h1 {
   line-height: 1.55;
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px 22px;
-  margin-top: 30px;
-}
-
 .button {
   display: inline-flex;
   align-items: center;
@@ -211,18 +203,31 @@ h1 {
 .tv-stand::after { transform: skewX(16deg); }
 
 .requirement-bar {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 18px;
   margin: 40px 0 0;
-  padding: 18px 20px;
-  border: 1px solid rgba(85, 217, 255, 0.23);
+  padding: 25px 28px;
+  border: 1px solid rgba(85, 217, 255, 0.36);
   border-radius: 20px;
-  background: rgba(85, 217, 255, 0.07);
+  background: rgba(85, 217, 255, 0.1);
 }
-.requirement-bar strong { display: block; margin-bottom: 2px; }
-.requirement-bar p { margin: 0; color: var(--muted); font-size: 14px; }
+.requirement-title {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--cyan);
+  font-size: 15px;
+  font-weight: 830;
+  text-decoration: underline;
+  text-decoration-color: rgba(85, 217, 255, 0.55);
+  text-underline-offset: 4px;
+}
+.requirement-title:hover { color: var(--text); text-decoration-color: currentColor; }
+.requirement-bar strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: clamp(21px, 2.5vw, 29px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+.requirement-bar p { margin: 0; color: var(--muted); font-size: 15px; }
 .text-link {
   color: var(--cyan);
   font-weight: 750;
@@ -478,8 +483,6 @@ h2 {
   .site-nav { justify-content: flex-start; gap: 8px 17px; }
   .hero, .host-hero { padding-top: 46px; }
   h1 { font-size: clamp(45px, 14vw, 66px); }
-  .requirement-bar { grid-template-columns: 1fr; }
-  .requirement-bar > .text-link { grid-column: 1; }
   .section { padding-top: 82px; }
   .source-cloud, .steps-grid, .download-grid { grid-template-columns: 1fr 1fr; }
   .feature-pair { grid-template-columns: 1fr; }
@@ -503,7 +506,6 @@ h2 {
   .site-nav .nav-cta { padding: 6px 9px; }
   .source-cloud, .steps-grid, .download-grid { grid-template-columns: 1fr; }
   .button { width: 100%; }
-  .actions { display: grid; }
   .tv-frame { padding: 7px; border-radius: 20px; }
   .tv-screen { border-radius: 13px; }
 }
