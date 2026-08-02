@@ -53,7 +53,7 @@ if (/href=["']#pinterest["']/i.test(home) || /id=["']pinterest["']/i.test(home))
 if (!home.includes('href="host.html"')) fail("home page does not link to the Host page");
 if (!host.includes('fetch("host-downloads.json"')) fail("Host page is not connected to release metadata");
 if (!host.includes("Required for live feeds")) fail("Host requirement is not explicit");
-for (const screenshot of ["tv-post-detail.png", "tv-translation.jpg", "mac-host.png", "iphone-host.png"]) {
+for (const screenshot of ["tv-feed.png", "tv-post-detail.png", "mac-host.png", "iphone-host.png"]) {
   if (!existsSync(join(root, "assets", "screens", screenshot))) fail(`required product screenshot is missing: ${screenshot}`);
 }
 

@@ -16,11 +16,10 @@
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="LoungeFeed home"><img src="assets/icons/icon-192.png" alt=""><span>LoungeFeed</span></a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html#features">Features</a>
         <a href="#downloads">Downloads</a>
         <a href="#setup">Setup</a>
         <a href="support.html">Support</a>
-        <a class="nav-cta" href="index.html">Product overview</a>
+        <a class="nav-cta" href="index.html">← Apple TV app</a>
       </nav>
     </header>
 
@@ -29,7 +28,7 @@
         <p class="eyebrow">The local companion for LoungeFeed</p>
         <h1 id="host-title">Bring your live feeds to Apple TV.</h1>
         <p class="hero-lead">LoungeFeed Host connects the accounts you authorize, prepares a private local viewing feed, and pairs it with LoungeFeed on Apple TV.</p>
-        <span class="required-badge">Required for live feeds</span>
+        <p class="required-note"><span aria-hidden="true"></span>Required for live feeds</p>
       </section>
 
       <section class="connection-flow" aria-label="How LoungeFeed Host connects to Apple TV">
@@ -54,7 +53,8 @@
             <p class="download-detail" id="mac-detail">Apple silicon · Release information coming soon</p>
             <p class="download-status" id="mac-status">The Developer ID signed and Apple-notarized download is being prepared.</p>
             <p class="download-meta" id="mac-meta">The download will include version and integrity information.</p>
-            <a class="button unavailable" id="mac-action" aria-disabled="true">Preparing for launch</a>
+            <span class="release-state" id="mac-pending">Availability: preparing for launch</span>
+            <a class="button primary" id="mac-action" hidden>Download for Mac</a>
           </article>
           <article class="download-card">
             <span class="platform-tag">Apple App Store</span>
@@ -62,7 +62,8 @@
             <p class="download-detail" id="iphone-detail">Distributed through the App Store</p>
             <p class="download-status" id="iphone-status">The iPhone App Store release is being prepared.</p>
             <p class="download-meta" id="iphone-meta">Install and updates will be managed by Apple.</p>
-            <a class="button unavailable" id="iphone-action" aria-disabled="true">Preparing for launch</a>
+            <span class="release-state" id="iphone-pending">Availability: preparing for launch</span>
+            <a class="button primary" id="iphone-action" hidden>View on the App Store</a>
           </article>
         </div>
       </section>
@@ -106,7 +107,7 @@
 
     <footer class="site-footer">
       <span>Need help installing or pairing LoungeFeed Host?</span>
-      <span class="footer-links"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="mailto:loungefeed@outlook.com">loungefeed@outlook.com</a></span>
+      <span class="footer-links"><a href="index.html">Apple TV app</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="mailto:loungefeed@outlook.com">loungefeed@outlook.com</a></span>
     </footer>
   </div>
 
@@ -117,9 +118,8 @@
       const url = platform === "mac" ? data.downloadURL : data.appStoreURL;
       if (!url) return;
       action.href = url;
-      action.removeAttribute("aria-disabled");
-      action.classList.remove("unavailable");
-      action.classList.add("primary");
+      action.hidden = false;
+      document.getElementById(`${platform}-pending`).hidden = true;
       action.textContent = platform === "mac" ? "Download for Mac" : "View on the App Store";
     };
 
