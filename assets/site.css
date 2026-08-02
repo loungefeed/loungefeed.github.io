@@ -459,6 +459,7 @@ h2 {
 }
 .device-shot {
   overflow: hidden;
+  margin: 0;
   border: 1px solid var(--line-strong);
   border-radius: 26px;
   background: rgba(255, 255, 255, 0.055);
