@@ -4,7 +4,7 @@
   "macOS": {
     "status": "preparing",
     "version": null,
-    "architecture": "Apple silicon",
+    "architecture": "Apple silicon only",
     "minimumSystemVersion": null,
     "downloadURL": null,
     "sha256": null

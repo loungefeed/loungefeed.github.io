@@ -44,6 +44,7 @@ for (const file of htmlFiles) {
 
 const home = readFileSync(join(root, "index.html"), "utf8");
 const host = readFileSync(join(root, "host.html"), "utf8");
+const siteCSS = readFileSync(join(root, "assets", "site.css"), "utf8");
 for (const source of ["Twitter", "Bluesky", "Reddit", "Mastodon", "Telegram", "Pinterest"]) {
   if (!home.includes(`>${source}<`)) fail(`home page is missing the ${source} source chip`);
 }
@@ -53,6 +54,10 @@ if (/href=["']#pinterest["']/i.test(home) || /id=["']pinterest["']/i.test(home))
 if (!home.includes('href="host.html"')) fail("home page does not link to the Host page");
 if (!host.includes('fetch("host-downloads.json"')) fail("Host page is not connected to release metadata");
 if (!host.includes("Required for live feeds")) fail("Host requirement is not explicit");
+if (!host.includes("Apple silicon only")) fail("Mac Host architecture limitation is not explicit");
+if (!/\.host-screens\s*\{[^}]*grid-template-columns:\s*1fr;/s.test(siteCSS)) {
+  fail("Mac and iPhone Host screenshots must render on separate rows");
+}
 for (const screenshot of ["tv-feed.png", "tv-post-detail.png", "mac-host.png", "iphone-host.png"]) {
   if (!existsSync(join(root, "assets", "screens", screenshot))) fail(`required product screenshot is missing: ${screenshot}`);
 }

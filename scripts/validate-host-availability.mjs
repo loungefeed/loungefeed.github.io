@@ -21,6 +21,12 @@ if (!homePage.includes('href="host.html"')) fail("the product home page does not
 for (const [name, value] of [["macOS", metadata.macOS], ["iPhone", metadata.iPhone]]) {
   if (!value || !["preparing", "available"].includes(value.status)) fail(`${name} has invalid availability`);
 }
+if (metadata.macOS.architecture !== "Apple silicon only") {
+  fail("Mac Host download metadata must explicitly say Apple silicon only");
+}
+if (!hostPage.includes("Apple silicon only")) {
+  fail("Mac Host download page must explicitly say Apple silicon only");
+}
 
 if (submissionMode) {
   if (metadata.submissionReady !== true) fail("Host availability is not marked ready for Apple TV submission");

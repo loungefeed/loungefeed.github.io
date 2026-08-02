@@ -453,9 +453,9 @@ h2 {
 
 .host-screens {
   display: grid;
-  grid-template-columns: minmax(0, 1.95fr) minmax(220px, 0.58fr);
-  align-items: stretch;
-  gap: 18px;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 28px;
 }
 .device-shot {
   overflow: hidden;
@@ -465,7 +465,7 @@ h2 {
   background: rgba(255, 255, 255, 0.055);
 }
 .device-shot.mac { aspect-ratio: 16 / 10; }
-.device-shot.phone { aspect-ratio: 0.56 / 1; max-height: 620px; justify-self: center; }
+.device-shot.phone { width: min(420px, 100%); aspect-ratio: 0.56 / 1; max-height: 750px; justify-self: center; }
 .device-shot img { width: 100%; height: 100%; object-fit: cover; }
 .device-shot.mac img { object-position: center 67%; transform: scale(1.32); }
 .device-shot figcaption { padding: 12px 15px; color: var(--muted); font-size: 13px; }
