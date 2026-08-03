@@ -144,6 +144,7 @@ h1 {
 
 .button:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.42); }
 .button[hidden] { display: none; }
+.button-icon { width: 18px; height: 18px; flex: 0 0 auto; }
 .button.primary {
   border-color: transparent;
   color: #041018;
