@@ -450,6 +450,7 @@ h2 {
   font-weight: 680;
 }
 .release-state::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.release-state.available::before { background: var(--mint); }
 
 .host-screens {
   display: grid;

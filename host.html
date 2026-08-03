@@ -134,7 +134,9 @@
       if (!url) return;
       action.href = url;
       action.hidden = false;
-      document.getElementById(`${platform}-pending`).hidden = true;
+      const availability = document.getElementById(`${platform}-pending`);
+      availability.textContent = "Availability: available now";
+      availability.classList.add("available");
       action.textContent = platform === "mac" ? "Download for Mac" : "View on the App Store";
     };
 
