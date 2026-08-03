@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "submissionReady": false,
   "macOS": {
-    "status": "preparing",
-    "version": null,
+    "status": "available",
+    "version": "1.0.0",
     "architecture": "Apple silicon only",
-    "minimumSystemVersion": null,
-    "downloadURL": null,
-    "sha256": null
+    "minimumSystemVersion": "12.0",
+    "downloadURL": "https://loungefeed-downloads.loungefeed.workers.dev/releases/1.0.0/LoungeFeed-Host-1.0.0-arm64.dmg",
+    "sha256": "cfcf6f4f03d25c2c818e25739402b33066b5f8c7438b7e55f5f4dee9f484411f"
   },
   "iPhone": {
     "status": "preparing",
