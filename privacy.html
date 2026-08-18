@@ -143,7 +143,7 @@
 
     <div class="hero">
       <h1>Privacy Policy</h1>
-      <p class="updated">Effective date: August 2, 2026</p>
+      <p class="updated">Effective date: August 18, 2026</p>
       <p class="updated">This Privacy Policy explains how LoungeFeed Project operates LoungeFeed and handles information when users connect content sources to watch their own authorized feeds on Apple TV.</p>
     </div>
 
@@ -191,6 +191,9 @@
         If a user explicitly uploads a privacy-safe diagnostic report through the Support page, the report is stored in a private Cloudflare R2 bucket for troubleshooting and is automatically deleted after 30 days. Reports exclude credentials, cookies, request bodies, upstream URLs, account content, and media. Diagnostic uploads are optional and are never sent in the background.
       </p>
       <p>
+        If a user explicitly selects <strong>Report displayed content</strong> in LoungeFeed Viewer, LoungeFeed stores a small report in the same private support bucket. It contains a random Support ID, one-way opaque identifiers for the displayed item and (when available) its author, an enumerated report reason, safety labels or scores already available to the Viewer, and the app version. It does not contain post text, images, video, source credentials, cookies, or private source links. These reports are automatically deleted after 30 days.
+      </p>
+      <p>
         If a user opens the optional Apple TV content-controls page by scanning a code shown on their television, LoungeFeed stores a random Apple TV identifier, a one-way hash of a device key, the selected preference, and (when enabled) the time of age confirmation in Cloudflare D1. This record does not contain feed content, media, source credentials, account names, or Apple Account information. The short-lived code session expires after 10 minutes. Disabled preference records are automatically removed after 90 days without activity.
       </p>
     </section>
@@ -220,7 +223,7 @@
         LoungeFeed displays user-generated content supplied by the connected services. LoungeFeed does not host that content or let users publish content through LoungeFeed. Posts identified by a connected service or LoungeFeed's on-device safety checks are filtered by default.
       </p>
       <p>
-        A user may ask an originating service to remove content or take action against an account by using that service's own reporting, muting, and blocking tools. Concerns about content displayed by LoungeFeed can also be sent to <a href="mailto:loungefeed@outlook.com?subject=LoungeFeed%20content%20concern">loungefeed@outlook.com</a>. Do not include passwords, access tokens, cookies, or private account information.
+        In LoungeFeed Viewer, a user can hide a displayed post or mute its author locally. These choices are stored only on that Apple TV and can be restored in Settings. A user can also send the privacy-safe displayed-content report described above. When a safe public post link is available, LoungeFeed can show a QR code that opens the originating service so the user can use that service's own reporting, muting, blocking, and removal tools. Concerns can also be sent to <a href="mailto:loungefeed@outlook.com?subject=LoungeFeed%20content%20concern">loungefeed@outlook.com</a>. Do not include passwords, access tokens, cookies, or private account information.
       </p>
     </section>
 
