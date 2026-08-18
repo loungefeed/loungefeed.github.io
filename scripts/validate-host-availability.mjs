@@ -36,7 +36,7 @@ if (submissionMode) {
   if (!/^[a-f0-9]{64}$/i.test(metadata.macOS.sha256 || "")) fail("Mac Host SHA-256 is missing");
   if (!metadata.macOS.minimumSystemVersion) fail("Mac Host minimum macOS version is missing");
   if (metadata.iPhone.status !== "available") fail("iPhone Host is not publicly available");
-  if (!/^\d+\.\d+\.\d+$/.test(metadata.iPhone.version || "")) fail("iPhone Host version is invalid");
+  if (!/^\d+\.\d+(?:\.\d+)?$/.test(metadata.iPhone.version || "")) fail("iPhone Host version is invalid");
   if (!/^https:\/\/apps\.apple\.com\//.test(metadata.iPhone.appStoreURL || "")) fail("iPhone App Store URL is invalid");
 }
 

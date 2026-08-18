@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "submissionReady": false,
+  "submissionReady": true,
   "macOS": {
     "status": "available",
     "version": "1.0.1",
@@ -10,8 +10,8 @@
     "sha256": "7a8173c7fb287cf996e91e5dae11c2ed9fe4518dc0dd0051e7d7c3035b6b4a3a"
   },
   "iPhone": {
-    "status": "preparing",
-    "version": null,
-    "appStoreURL": null
+    "status": "available",
+    "version": "1.0",
+    "appStoreURL": "https://apps.apple.com/app/id6797183062"
   }
 }
