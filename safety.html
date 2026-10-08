@@ -89,8 +89,12 @@
 
   <script>
   (() => {
-    const endpoint = "https://loungefeed-support.loungefeed.workers.dev/v1/content-preferences/web-session";
-    const session = new URLSearchParams(location.search).get("session");
+    const parameters = new URLSearchParams(location.search);
+    const exploreSession = parameters.get("exploreSession");
+    const endpoint = exploreSession
+      ? "https://loungefeed-support.loungefeed.workers.dev/v1/explore-controls/web-session"
+      : "https://loungefeed-support.loungefeed.workers.dev/v1/content-preferences/web-session";
+    const session = exploreSession || parameters.get("session");
     const connection = document.getElementById("connection");
     const connectionTitle = document.getElementById("connection-title");
     const connectionMessage = document.getElementById("connection-message");
@@ -194,6 +198,14 @@
         const result = await request();
         if (!result || typeof result.enabled !== "boolean" || typeof result.proEligible !== "boolean") {
           throw new Error("invalid_response");
+        }
+        if (exploreSession && result.demoMode !== true) throw new Error("invalid_response");
+        if (exploreSession) {
+          document.querySelector("h1").textContent = "Explore sample controls";
+          const description = document.querySelector(".lead");
+          if (description) description.textContent = "These temporary controls affect fictional Explore content only. Your normal Apple TV preferences remain unchanged. This session expires after 10 minutes.";
+          document.querySelector("footer").textContent = "Explore sample session · No Apple Account or social-service information is used. This temporary session expires after 10 minutes.";
+          document.querySelector("#pro-dialog p").textContent = "This preference affects fictional Explore content only. Complete the sample PIN step on Apple TV to reveal the harmless marked sample. No purchase is required.";
         }
         sessionInfo = result;
         connection.hidden = true;
