@@ -3,11 +3,11 @@
   "submissionReady": true,
   "macOS": {
     "status": "available",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "architecture": "Apple silicon only",
     "minimumSystemVersion": "12.0",
-    "downloadURL": "https://loungefeed-downloads.loungefeed.workers.dev/releases/1.0.1/LoungeFeed-Host-1.0.1-arm64.dmg",
-    "sha256": "7a8173c7fb287cf996e91e5dae11c2ed9fe4518dc0dd0051e7d7c3035b6b4a3a"
+    "downloadURL": "https://loungefeed-downloads.loungefeed.workers.dev/releases/1.0.2/LoungeFeed-Host-1.0.2-arm64.dmg",
+    "sha256": "77aebdf5df0c1480907ed82fd4ca70baf6ef7d2536bc87f6cb7a0ddaaba09631"
   },
   "iPhone": {
     "status": "available",
